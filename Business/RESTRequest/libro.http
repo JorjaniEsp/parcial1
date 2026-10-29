@@ -1,0 +1,55 @@
+@host = http://localhost:9090/api
+@uri = {{host}}/libros
+
+GET {{uri}}
+
+###
+
+GET {{uri}}/1
+
+###
+
+GET {{uri}}/999
+
+###
+
+POST {{uri}}
+Content-Type: application/json
+
+{
+    "isbn": "978-1",
+    "titulo": "Libro Uno",
+    "autor": "Autor Uno",
+    "anio_publicacion": 2020,
+    "ejemplares_disponibles": 5
+}
+
+###
+# valide el isbn
+POST {{uri}}
+Content-Type: application/json
+
+{
+    "isbn": "",
+    "titulo": "Libro Dos",
+    "autor": "Autor Dos",
+    "anio_publicacion": 2021,
+    "ejemplares_disponibles": 3
+}
+
+###
+
+PUT {{uri}}/3
+Content-Type: application/json
+
+{
+    "titulo": "Libro 3 Editado",
+    "ejemplares_disponibles": 10
+}
+###
+
+DELETE {{uri}}/1
+
+###
+
+DELETE {{uri}}/999

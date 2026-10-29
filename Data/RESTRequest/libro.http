@@ -1,0 +1,34 @@
+@host = http://localhost:8080/api
+@uri = {{host}}/libros
+
+GET {{uri}}
+###
+
+GET {{uri}}/1
+
+###
+POST {{uri}}
+Content-Type: application/json
+
+{
+    "isbn": "978-84-376-0494",
+    "titulo": "Cien años de soledad",
+    "autor": "Gabriel García",
+    "anio_publicacion": 1967,
+    "ejemplares_disponibles": 5
+}
+
+###
+PUT {{uri}}/1
+Content-Type: application/json
+
+{
+    "titulo": "Cambio",
+    "autor": "cambio",
+    "anio_publicacion": 2017,
+    "ejemplares_disponibles": 3
+}
+
+###
+
+DELETE {{uri}}/2
